@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html ng-app="demo">
+<head>
+    <meta charset="ISO-8859-1">
+    <title>Main Page</title>
+    <script type='text/javascript' src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.8/angular.js"></script>
+    <script type='text/javascript' src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.8/angular-route.js"></script>
+    <script type='text/javascript' src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.8/angular-resource.js"></script>
+
+    <script src="js/app/app.js"></script>
+    <script src="js/app/HelloResource.js"></script>
+    <script src="js/app/HelloService.js"></script>
+    <script src="js/app/HelloController.js"></script>
+    <link rel="stylesheet" href="css/lib/bootstrap.min.css"/>
+    <link rel="stylesheet" href="css/app/app.css"/>
+</head>
+<body >
+<hr/>
+<div class="container" ng-controller="HelloController">
+
+    <h2>Sample application</h2>
+    <div class="col-xs-12">
+        <div class="col-xs-6"><p>Message : {{hello.message}}</div>
+        <div class="col-xs-6"><button ng-click="testHello()" class="btn btn-sm btn-info">Test Hello</button></div>
+    </div>
+    <div class="col-xs-12">
+        <div class="col-xs-6"><p>Sample as json : {{hello.sampleJson | json }}</p></div>
+        <div class="col-xs-6"><button ng-click="getSample()" class="btn btn-sm btn-info">Get sample as JSON</button></div>
+    </div>
+</div>
+
+<div></div>
+<div></div>
+
+
+<div ng-app="FrescoesManagement" ng-controller="FrescoesController">
+
+    <h3>
+        Gestion des fresques
+     </h3>
+
+     <br/>
+     <table border="1">
+        <tr>
+           <th>ID</th>
+           <th>PROPRIETAIRE</th>
+           <th>MNEMO</th>
+           <th>GEO_POINT</th>
+           <th>NOM_RUE</th>
+           <th>COMMENTAIRE</th>
+        </tr>
+        <!-- $scope.employees -->
+        <tr ng-repeat="frescoe in frescoes">
+           <td> {{ frescoe.id }}</td>
+           <td> {{ frescoe.proprietaire }}</td>
+           <td >{{ frescoe.mnemo }}</td>
+           <td >{{ frescoe.geoPoint }}</td>
+           <td >{{ frescoe.nomRue }}</td>
+           <td >{{ frescoe.commentaire }}</td>
+           <td>
+           </td>
+           <td>
+           <a ng-click="deleteFrescoe(frescoe)" class="delete-button">Delete</a>
+           </td>
+        </tr>
+     </table>
+
+</div>
+
+
+</body>
+
+</html>
